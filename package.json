@@ -5,22 +5,20 @@
   "scripts": {
     "dev:client": "vite --config client/vite.config.ts",
     "dev:server": "node --loader ts-node/esm server/server.ts",
-    
     "build:client": "vite build --config client/vite.config.ts",
     "build:server": "tsc -p server/tsconfig.json",
     "build": "npm run build:client && npm run build:server",
-
     "create:stage": "npm run build && rm -rf ../stage/build && mkdir -p ../stage && cp -r ./build ../stage && cp ./package.json ../stage",
-
     "create:prod": "mkdir -p ../prod && if [ -d ../prod/build_current ]; then rm -rf ../prod/build_prev && mkdir -p ../prod/build_prev && mv ../prod/build_current ../prod/build_prev/build && mv ../prod/node_modules ../prod/build_prev/node_modules; fi && rm -rf ../prod/build_current && mkdir -p ../prod/build_current && cp -r ../stage/build/* ../prod/build_current/ && rm -rf ../prod/node_modules && cp -r ../stage/node_modules ../prod/node_modules && echo 'Prod ready with new build'",
     "deploy:prod": "rm -f ../prod/build && ln -s build_current ../prod/build && echo 'Prod symlink switched to build_current'",
     "rollback:prod": "rm -rf ../prod/build_current && rm -rf ../prod/node_modules && mv ../prod/build_prev/build ../prod/build_current && mv ../prod/build_prev/node_modules ../prod/node_modules && echo 'Reverted prod to previous build'"
   },
-
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
     "express": "^5.2.1",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react-dom": "^19.2.3",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",

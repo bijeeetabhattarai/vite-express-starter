@@ -1,16 +1,18 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ES2022", 
-    "jsx": "react-jsx", 
-    "moduleResolution": "node",
+    "module": "nodenext",
+    "jsx": "react-jsx",
+    "moduleResolution": "nodenext",
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
-    "paths": {
-      "@server/*": ["server/*"],
-    //   "@shared/*": ["shared/*"]
-    }
-  }
+    "baseUrl": "."
+  },
+  "exclude": ["client"]
 }
+
+// "paths": {
+//   "@server/*": ["server/*"]
+//   //   "@shared/*": ["shared/*"]
+// }
